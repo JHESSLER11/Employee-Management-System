@@ -1,4 +1,4 @@
-
+const db = require('../db/connection')
 
 const getAllDept = () => {
     const sqlQuery = 'SELECT * FROM department';
