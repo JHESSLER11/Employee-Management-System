@@ -10,4 +10,4 @@ const addDept = (name) => {
     return db.query(sqlQuery, [name])
 }
 
-module.exports = (getAllDept, addDept)
+module.exports = (getAllDept(), addDept())

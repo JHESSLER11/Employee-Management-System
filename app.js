@@ -1,7 +1,7 @@
 
-const { getAllDept, addDept } = require('./controller/department')
+const { getAllDept } = require('./controller/department')
 const inquirer = require('inquirer')
-const db = require('./db/connection')
+//const db = require('./db/connection')
 
 const init = async () => {
     const { choice } = await inquirer.prompt([
