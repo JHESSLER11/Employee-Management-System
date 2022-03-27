@@ -6,8 +6,8 @@ const getAllDept = () => {
 }
 
 const addDept = (name) => {
-    const sqlQuery = 'INSERT INTO Roles (name) VALUES (?)';
+    const sqlQuery = 'INSERT INTO department (name) VALUES (?)';
     return db.query(sqlQuery, [name])
 }
 
-module.exports = (getAllDept(), addDept())
+module.exports = {getAllDept, addDept}
