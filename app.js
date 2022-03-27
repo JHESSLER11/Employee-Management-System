@@ -21,26 +21,30 @@ const init = async () => {
         case 'view all departments':
             const [deptRows] = await getAllDept();
             console.table(deptRows);
-            init()
+            init();
             break;
 
         case 'view all roles':
             const [rolesRows] = await getAllRoles();
             console.table(rolesRows)
-            init()
+            init();
             break;
         
         case 'view all employees':
             const [EmpRows] = await getAllEmp();
             console.table(EmpRows)
-            init()
+            init();
             break;
         
         case 'add a department':
             const AddDept = await addDept();
             console.table(AddDept)
-            init()
+            init();
             break;
+
+        case 'Quit':
+            break;
+
     }
 
 }

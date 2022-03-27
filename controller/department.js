@@ -7,17 +7,19 @@ const getAllDept = () => {
 }
 
 const addDept = () => {
-    inquirer.prompt( [
+    inquirer.prompt([
         {
             name: 'newDept',
             type: 'input',
-            message: 'What is the name of your new department?',
+            message: 'What is the name of your new department?'
 
-        },
+        }
     ])
     .then((answer) => {
         const sqlQuery = 'INSERT INTO department (name) VALUES (?)';
-        return db.query(sqlQuery, answer.newDept)
+        db.query(sqlQuery, answer.newDept, (error, response) => {
+            if (error) throw error
+        })
     })
 }
 
