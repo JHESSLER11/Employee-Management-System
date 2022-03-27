@@ -31,8 +31,11 @@ const addRole = async () => {
         }
     ])
     .then((answer) => {
-        const sqlQuery = 'INSERT INTO roles (title, salary, department_id) VALUES (?)';
-        db.query(sqlQuery, answer.roleTitle, answer.roleSalary, answer.roleDept)   
+        title = answer.roleTitle
+        salary = answer.roleSalary
+        dept = answer.roleDept
+        const sqlQuery = `INSERT INTO roles(title, salary, department_id) VALUES ("${title}", "${salary}", "${dept}")`;
+        db.query(sqlQuery)   
     })
 }
 

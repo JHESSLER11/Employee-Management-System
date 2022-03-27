@@ -6,8 +6,8 @@ const getAllDept = () => {
     return db.query(sqlQuery)
 }
 
-const addDept = () => {
-    inquirer.prompt([
+const addDept = async() => {
+    await inquirer.prompt([
         {
             name: 'newDept',
             type: 'input',
