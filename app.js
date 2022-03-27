@@ -1,7 +1,7 @@
 
 const { getAllDept, addDept } = require('./controller/department')
 const { getAllRoles, addRole } = require('./controller/roles')
-const { getAllEmp, addEmp } = require('./controller/employee')
+const { getAllEmp, addEmp, updateRole } = require('./controller/employee')
 const inquirer = require('inquirer')
 const cTable = require('console.table');
 //const db = require('./db/connection')
@@ -54,7 +54,16 @@ const init = async () => {
             init();
             break;
 
+        case 'update an employee role':
+            const [EmpRow] = await getAllEmp();
+            console.table(EmpRow)
+            const updateEmployee = await updateRole();
+                        
+            init();
+            break;
+
         case 'Quit':
+            console.log('bye!')
             break;
 
     }

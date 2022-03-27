@@ -51,6 +51,20 @@ const addEmp = async () => {
 
 const updateRole = async () => {
     await inquirer.prompt([
+
+        {
+            name: 'Employee',
+            type: 'list',
+            choices: 1,
+            message: "What employee would you like to update?"
+        },
+
+        {
+            name: 'newRole',
+            type: 'list',
+            choices: 1,
+            message: "select new employee role from list."
+        }
     ])
 }
 
