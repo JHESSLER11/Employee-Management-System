@@ -17,9 +17,7 @@ const addDept = () => {
     ])
     .then((answer) => {
         const sqlQuery = 'INSERT INTO department (name) VALUES (?)';
-        db.query(sqlQuery, answer.newDept, (error, response) => {
-            if (error) throw error
-        })
+        db.query(sqlQuery, answer.newDept)   
     })
 }
 
