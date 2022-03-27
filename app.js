@@ -37,13 +37,13 @@ const init = async () => {
             break;
         
         case 'add a department':
-            const [EmpRows] = await addDept();
-            console.table(EmpRows)
+            const AddDept = await addDept();
+            console.table(AddDept)
             init()
             break;
     }
 
 }
 
-
+//stats the program
 init()
