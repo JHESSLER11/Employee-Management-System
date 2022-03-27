@@ -1,7 +1,7 @@
 
 const { getAllDept, addDept } = require('./controller/department')
 const { getAllRoles, addRole } = require('./controller/roles')
-const { getAllEmp } = require('./controller/employee')
+const { getAllEmp, addEmp } = require('./controller/employee')
 const inquirer = require('inquirer')
 const cTable = require('console.table');
 //const db = require('./db/connection')
@@ -45,6 +45,12 @@ const init = async () => {
         case 'add a role':
             const AddRole = await addRole();
                 
+            init();
+            break;
+        
+        case 'add an employee':
+            const AddEmp = await addEmp();
+                    
             init();
             break;
 

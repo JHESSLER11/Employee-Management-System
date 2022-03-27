@@ -39,4 +39,9 @@ const addRole = async () => {
     })
 }
 
+const updateRole = async () => {
+    await inquirer.prompt([
+    ])
+}
+
 module.exports = {getAllRoles, addRole}
