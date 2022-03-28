@@ -50,12 +50,21 @@ const addEmp = async () => {
 }
 
 const updateRole = async () => {
+
+    let employees = await db.query(`SELECT first_name FROM employee`);
+
+    console.log(employees)
     await inquirer.prompt([
 
         {
             name: 'Employee',
             type: 'list',
-            choices: 1,
+            choices: employees.map((employee) =>{
+                return {
+                    name: employee.first_name,
+                    value: employee.id
+                }
+            }),
             message: "What employee would you like to update?"
         },
 
@@ -66,6 +75,11 @@ const updateRole = async () => {
             message: "select new employee role from list."
         }
     ])
+}
+
+const employeeName = async () => {
+    const sqlQuery = `SELECT last_name FROM employee`
+    db.query(sqlQuery)
 }
 
 module.exports = {getAllEmp, addEmp, updateRole}
