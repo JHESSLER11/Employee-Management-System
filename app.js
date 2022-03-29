@@ -55,8 +55,8 @@ const init = async () => {
             break;
 
         case 'update an employee role':
-            const [EmpRow] = await getAllEmp();
-            console.table(EmpRow)
+            // const [EmpRow] = await getAllEmp();
+            // console.table(EmpRow)
             const updateEmployee = await updateRole();
                         
             init();

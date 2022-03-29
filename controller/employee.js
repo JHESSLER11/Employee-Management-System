@@ -51,7 +51,7 @@ const addEmp = async () => {
 
 const updateRole = async () => {
 
-    let employees = await db.query(`SELECT first_name FROM employee`);
+    let employees = await db.query(`SELECT * FROM employee`)
 
     console.log(employees)
     await inquirer.prompt([
@@ -59,27 +59,41 @@ const updateRole = async () => {
         {
             name: 'Employee',
             type: 'list',
-            choices: employees.map((employee) =>{
+            choices: employees.map((employeeName) => {
                 return {
-                    name: employee.first_name,
-                    value: employee.id
+                    name: employeeName.first_name + employeeName.last_name,
+                    value: employeeName.id
                 }
             }),
             message: "What employee would you like to update?"
         },
 
+    ])
+    
+    let roles = await db.query(`SELECT * FROM role`)
+
+    await inquirer.prompt([
+
+
         {
             name: 'newRole',
             type: 'list',
-            choices: 1,
+            choices: roles.map((role) => {
+                return {
+                    name: role.title,
+                    value: role.id
+                }
+            }),
             message: "select new employee role from list."
         }
     ])
 }
 
-const employeeName = async () => {
-    const sqlQuery = `SELECT last_name FROM employee`
-    db.query(sqlQuery)
-}
+// const employeeName = async () => {
+//     const sqlQuery = `SELECT last_name FROM employee`
+//     db.query(sqlQuery)
+// }
+
+// console.log(employeeName)
 
 module.exports = {getAllEmp, addEmp, updateRole}
