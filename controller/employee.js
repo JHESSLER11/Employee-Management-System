@@ -88,7 +88,7 @@ const updateRole = async () => {
         }
     ])
 
-    await db.query(`UPDATE employee SET ? WHERE ?`, [{ role_id: newRole.role }, { id: selectedEmployee.employee }]);
+    await db.query(`UPDATE employee SET ? WHERE ?`, [{ role_id: newRole.newRole }, { id: selectedEmployee.Employee }]);
 }
 
 // const employeeName = async () => {
