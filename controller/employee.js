@@ -51,7 +51,7 @@ const addEmp = async () => {
 
 const updateRole = async () => {
 
-    let employees = await db.query(`SELECT * FROM employee`)
+    let [employees] = await db.query(`SELECT * FROM employee`)
 
     console.log(employees)
     await inquirer.prompt([
