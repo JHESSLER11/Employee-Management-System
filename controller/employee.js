@@ -5,7 +5,7 @@ const getAllEmp = () => {
     const sqlQuery = 'SELECT * FROM employee';
     return db.query(sqlQuery)
 }
-
+// adds employee
 const addEmp = async () => {
     await inquirer.prompt([
 
@@ -48,20 +48,20 @@ const addEmp = async () => {
        db.query(sqlQuery)   
    })
 }
-
+//updates employee role
 const updateRole = async () => {
 
     let [employees] = await db.query(`SELECT * FROM employee`)
 
     console.log(employees)
-    await inquirer.prompt([
+     let selectedEmployee = await inquirer.prompt([
 
         {
             name: 'Employee',
             type: 'list',
             choices: employees.map((employeeName) => {
                 return {
-                    name: employeeName.first_name + employeeName.last_name,
+                    name: employeeName.first_name + "" + employeeName.last_name,
                     value: employeeName.id
                 }
             }),
@@ -70,23 +70,25 @@ const updateRole = async () => {
 
     ])
     
-    let roles = await db.query(`SELECT * FROM role`)
+    let [roles] = await db.query(`SELECT * FROM roles`)
 
-    await inquirer.prompt([
+    let newRole = await inquirer.prompt([
 
 
         {
             name: 'newRole',
             type: 'list',
-            choices: roles.map((role) => {
+            choices: roles.map((roleName) => {
                 return {
-                    name: role.title,
-                    value: role.id
+                    name: roleName.title,
+                    value: roleName.id
                 }
             }),
             message: "select new employee role from list."
         }
     ])
+
+    await db.query(`UPDATE employee SET ? WHERE ?`, [{ role_id: newRole.role }, { id: selectedEmployee.employee }]);
 }
 
 // const employeeName = async () => {
