@@ -4,8 +4,8 @@ const { getAllRoles, addRole } = require('./controller/roles')
 const { getAllEmp, addEmp, updateRole } = require('./controller/employee')
 const inquirer = require('inquirer')
 const cTable = require('console.table');
-//const db = require('./db/connection')
 
+// runs the program 
 const init = async () => {
     const { choice } = await inquirer.prompt([
 
@@ -38,27 +38,25 @@ const init = async () => {
         
         case 'add a department':
             const AddDept = await addDept();
-
+            console.log("new department added!")
             init();
             break;
         
         case 'add a role':
             const AddRole = await addRole();
-                
+            console.log("new role added!")
             init();
             break;
         
         case 'add an employee':
             const AddEmp = await addEmp();
-                    
+            console.log("employee added!")     
             init();
             break;
 
         case 'update an employee role':
-            // const [EmpRow] = await getAllEmp();
-            // console.table(EmpRow)
             const updateEmployee = await updateRole();
-                        
+            console.log("employee role updated!")
             init();
             break;
 

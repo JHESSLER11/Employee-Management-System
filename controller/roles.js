@@ -7,6 +7,9 @@ const getAllRoles = () => {
 }
 
 const addRole = async () => {
+    // grabbing all the data in the department table and destructuring it.
+    let [departments] = await db.query(`SELECT * FROM department`)
+
      await inquirer.prompt([
 
         {
@@ -25,7 +28,13 @@ const addRole = async () => {
 
         {
             name: 'roleDept',
-            type: 'input',
+            type: 'list',
+            choices: departments.map((departmentName) => {
+                return {
+                    name: departmentName.name,
+                    value: departmentName.id
+                }
+            }),
             message: 'What department is your new role in?'
 
         }
@@ -39,9 +48,5 @@ const addRole = async () => {
     })
 }
 
-const updateRole = async () => {
-    await inquirer.prompt([
-    ])
-}
 
 module.exports = {getAllRoles, addRole}
