@@ -26,7 +26,7 @@
   For any questions regarding this project please contact me at the following email: jhessler11@gmail.com
   View my Github at the following link for more projects https://github.com/jhessler11
   
-  ##Video
+  ## Video
   
   https://user-images.githubusercontent.com/28634482/161457774-ce137675-3bf4-4aa9-9017-658a7814b675.mp4
 
