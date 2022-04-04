@@ -70,7 +70,7 @@ const updateRole = async () => {
 
     let [employees] = await db.query(`SELECT * FROM employee`)
 
-    console.log(employees)
+    
      let selectedEmployee = await inquirer.prompt([
 
         {
